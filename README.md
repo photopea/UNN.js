@@ -71,7 +71,7 @@ Let's make the same network for MNIST, as in [ConvNetJS demo](https://cs.stanfor
         ["full","sfmx",10, 1, 1]      ];
     var prm = {method:"adadelta", batch_size:20};
     
- One training loop over 60 000 values takes 61 seconds and makes 157 mistakes when testing (test error rate 1.57%).
+ One training loop over 60 000 values takes 61 seconds and makes 143 mistakes when testing (test error rate 1.43%).
  The same training loop with ConvNetJS takes 246 seconds and makes 145 mistakes when testing (test error rate 1.45%). After four such iterations, both networks make about 110 mistakes.
 
 ## Loading other formats
