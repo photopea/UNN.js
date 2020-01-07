@@ -6,6 +6,7 @@ UNN lets you generate, train and test artifficial neural networks. It can also l
 * `UNN` - main tools for training and testing
 * `UNN.util` - UNN utilities, contains parsers for other formats
 
+## Documentation
 Each layer of the network holds data in a cuboid: 3D matrix W x H x D. We can think of it as D feature maps of size W x H. Values are stored in a linear array, arranged by Z, then by Y, then by X.
 
 Each layer has a type: an array of parameters of the layer
@@ -29,10 +30,29 @@ In addition, `"conv"` and `"pool"` layers have three extra parameters:
 
 A network for detecting XOR, architecture 2:2:1, using Sigmoid for activation:
 
-    var Types = [  
-        ["inpt","line",2,1,1], 
-        ["full","sigm",2,1,1], 
-        ["full","sigm",1,1,1]  
-    ];
-    var net = UNN.Create(Types, 0.1);
+    var net = UNN.Create([ ["inpt","line",2,1,1],["full","sigm",2,1,1],["full","sigm",1,1,1] ], 0.5);
     
+#### `UNN.Train(net, inputs, outputs, prm)`
+- `net` - a network made by UNN.Create(), or achieved otherwise
+- `inputs` - an array of vectors for the input
+- `outputs` - an array of vectors expected at the output
+- `prm` - training parameters, `{ method:"sgd"|"momentum"|"adagrad"|"adadelta", batch_size:Number }`
+- returns an error of the network after training
+
+Let's train our network on four possible inputs
+
+    var In = [[0,0],[0,1],[1,0],[1,1]], Ou = [[0],[1],[1],[0]];
+    var prm = { method:"sgd", batch_size:1 };
+    for(var i=0; i<5000; i++) UNN.Train(net,In,Ou,prm);
+    
+#### `UNN.GetOutput(net, vec, O)`
+- `net` - a network
+- `vec` - an input vector
+- `O` - array - a container for outputs
+- fills O with an output of each layer, you can reuse the same O between multiple calls (to be GC-friendly)
+
+Let's test our network for XOR
+
+    var O = [];
+	UNN.GetOutput(net, [0,0], O);  console.log(O[2][0]);  // prints [0.016312343710744647]
+	UNN.GetOutput(net, [0,1], O);  console.log(O[2][0]);  // prints [0.9824375045125838]
