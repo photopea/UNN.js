@@ -82,4 +82,4 @@ Takes an object: a ConvNetJS network (e.g. parsed from a JSON file). Converts it
 #### `UNN.util.fromCaffe(arrayBuffer)`
 Takes an ArrayBuffer of a .caffemodel file. Converts it into UNN network.
 
-We used it to parse and test a [LeNet model](https://github.com/mravendi/caffe-test-mnist-jpg/blob/master/model/lenet_iter_10000.caffemodel), which made only 94 mistakes on MNIST.
+We used it to parse and test a [LeNet model](https://github.com/mravendi/caffe-test-mnist-jpg/blob/master/model/lenet_iter_10000.caffemodel) (431080 weights), which made only 94 mistakes on MNIST.
