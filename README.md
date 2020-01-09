@@ -71,8 +71,10 @@ Let's make the same network for MNIST, as in [ConvNetJS demo](https://cs.stanfor
         ["full","sfmx",10, 1, 1]      ];
     var prm = {method:"adadelta", batch_size:20};
     
- One training loop over 60 000 values takes 61 seconds and makes 143 mistakes when testing (test error rate 1.43%).
- The same training loop with ConvNetJS takes 246 seconds and makes 145 mistakes when testing (test error rate 1.45%). After four such iterations, both networks make about 110 mistakes.
+One training loop over 60 000 values takes 61 seconds and makes 143 mistakes when testing (test error rate 1.43%).
+The same training loop with ConvNetJS takes 246 seconds and makes 145 mistakes when testing (test error rate 1.45%). After four such iterations, both networks make about 110 mistakes.
+ 
+We made the same test with TensorFlow.js (which uses GPU through WebGL). One iteration took only 52 seconds (on our GPU). But the network made 220 errors after one iteration, and 150 errors after four iterations (208 seconds).
 
 ## Loading other formats
 
