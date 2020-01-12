@@ -1,7 +1,7 @@
 # UNN.js
 Deep Learning in Javascript. Alternative to ConvNetJS, that is 4x faster.
 
-UNN lets you generate, train and test artifficial neural networks. It can also load existing models from ConvNetJS (.json) and Caffe (.caffemodel). It consists of two files:
+UNN lets you generate, train and test artificial neural networks. It can also load existing models from ConvNetJS (.json) and Caffe (.caffemodel). It consists of two files:
 
 * `UNN` - main tools for training and testing
 * `UNN.util` - UNN utilities, contains parsers for other formats
