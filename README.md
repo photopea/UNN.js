@@ -33,7 +33,7 @@ A network for detecting XOR, architecture 2:2:1, using Sigmoid for activation:
     var net = UNN.Create([ ["inpt","line",2,1,1],["full","sigm",2,1,1],["full","sigm",1,1,1] ], 0.5);
     
 #### `UNN.Train(net, inputs, outputs, prm)`
-- `net` - a network made by UNN.Create(), or achieved otherwise
+- `net` - a network made by UNN.Create(), or achieved in other way
 - `inputs` - an array of vectors for the input
 - `outputs` - an array of vectors expected at the output
 - `prm` - training parameters, `{ method:"sgd"|"momentum"|"adagrad"|"adadelta", batch_size:Number }`
