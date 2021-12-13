@@ -49,7 +49,10 @@ Let's train our network on four possible inputs
 - `net` - a network
 - `vec` - an input vector
 - `O` - array - a container for outputs
-- fills O with an output of each layer, you can reuse the same O between multiple calls (to be GC-friendly)
+-  O returns an array of arrays containing the activations for each layer
+example:
+	O[0] returns input layer activations
+	O[2] returns output layer activations
 
 Let's test our network for XOR
 
